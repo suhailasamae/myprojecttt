@@ -39,8 +39,8 @@ app.get('/users', function (req, res, next) {
 
 app.post("/create", (req, res) => {
   connection.query(
-    "INSERT INTO users ( gmail, password) VALUES (?,?)",
-    [req.body.gmail, req.body.password],
+    "INSERT INTO users (username, email, password) VALUES (?,?,?)",
+    [req.body.username, req.body.email, req.body.password],
     (err, result) => {
       if (err) {
         console.log(err);
